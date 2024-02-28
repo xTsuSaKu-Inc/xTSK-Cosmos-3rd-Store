@@ -227,7 +227,7 @@
       "restart": "unless-stopped"
     },
     "{ServiceName}-Postgres": {
-      "image": "postgres:15",
+      "image": "postgres",
       "container_name": "{ServiceName}-Postgres",
       "security_opt": ["seccomp:unconfined"],
       "network_mode": "cosmos-{ServiceName}-default",
