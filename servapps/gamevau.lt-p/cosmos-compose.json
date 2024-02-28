@@ -2,36 +2,6 @@
   "cosmos-installer": {
     "form": [
       {
-        "name": "DB_HOST",
-        "label": "Postgres Database Host",
-        "initialValue": "{ServiceName}-Postgres",
-        "type": "text"
-      },
-      {
-        "name": "DB_PORT",
-        "label": "Postgres Database Port",
-        "initialValue": "5432",
-        "type": "text"
-      },
-      {
-        "name": "DB_DATABASE",
-        "label": "Postgres Database Name",
-        "initialValue": "gamevault",
-        "type": "text"
-      },
-      {
-        "name": "DB_USERNAME",
-        "label": "Postgres Database Username",
-        "initialValue": "gamevault",
-        "type": "text"
-      },
-      {
-        "name": "DB_PASSWORD",
-        "label": "Postgres Database Password",
-        "initialValue": "default_password@gamevault",
-        "type": "password"
-      },
-      {
         "name": "SERVER_ADMIN_USERNAME",
         "label": "Gamevault Server Username",
         "initialValue": "admin",
@@ -150,11 +120,9 @@
       "security_opt": ["seccomp:unconfined"],
       "network_mode": "cosmos-{ServiceName}-default",
       "environment": [
-        "DB_HOST={Context.DB_HOST}",
-        "DB_PORT={Context.DB_PORT}",
-        "DB_DATABASE={Context.DB_DATABASE}",
-        "DB_USERNAME={Context.DB_USERNAME}",
-        "DB_PASSWORD={Context.DB_PASSWORD}",
+        "DB_HOST={ServiceName}-Postgres",
+        "DB_USERNAME=gamevaultp",
+        "DB_PASSWORD={Passwords.0}",
         "SERVER_ADMIN_USERNAME={Context.SERVER_ADMIN_USERNAME}",
         "SERVER_ADMIN_PASSWORD={Context.SERVER_ADMIN_PASSWORD}",
         "RAWG_API_KEY={Context.RAWG_API_KEY}",
@@ -226,20 +194,18 @@
       ],
       "restart": "unless-stopped"
     },
-    "{Context.DB_HOST}": {
-      "image": "postgres",
-      "container_name": "{Context.DB_HOST}",
-      "security_opt": ["seccomp:unconfined"],
+    "{ServiceName}-Postgres": {
+      "image": "postgres:15-alpine",
+      "container_name": "{ServiceName}-Postgres",
+      "security_opt": ["seccomp:unconfined", "apparmor:unconfined"],
       "network_mode": "cosmos-{ServiceName}-default",
       "environment": [
-        "POSTGRES_USER={Context.DB_USERNAME}",
-        "POSTGRES_PASSWORD={Context.DB_PASSWORD}",
-        "POSTGRES_DB={Context.DB_DATABASE}"
+        "POSTGRES_USER=gamevaultp",
+        "POSTGRES_PASSWORD={Passwords.0}",
+        "POSTGRES_DB=gamevault"
       ],
       "labels": {
-        "cosmos-persistent-env": "POSTGRES_USER, POSTGRES_DB",
-        "cosmos-force-network-secured": "true",
-        "cosmos-auto-update": "true",
+        "cosmos-persistent-env": "POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD",
         "cosmos.stack": "{ServiceName}-Stack",
         "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/images/logo.png"
       },
