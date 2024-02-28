@@ -16,7 +16,7 @@
       {
         "name": "DB_DATABASE",
         "label": "Postgres Database Name",
-        "initialValue": "5432",
+        "initialValue": "gamevault",
         "type": "text"
       },
       {
@@ -83,7 +83,7 @@
         "name": "SERVER_ADMIN_PASSWORD",
         "label": "Reset Admin Password (Only if NEEDED)",
         "initialValue": "",
-        "type": "text"
+        "type": "password"
       },
       {
         "name": "SERVER_API_DOCS_ENABLED",
