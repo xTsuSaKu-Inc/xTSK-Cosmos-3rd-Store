@@ -1,3 +1,27 @@
 {
-    
+  "source": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps.json",
+  "showcase": [],
+  "all": [
+    {
+      "name": "gamevau.lt [Postgres]",
+      "longDescription": "<p>the self-hosted gaming platform for drm-free games.</p>",
+      "description": "the self-hosted gaming platform for drm-free games.",
+      "tags": ["Gamevault", "Game", "DRM", "self-hosted"],
+      "repository": "https://github.com/Phalcode/gamevault-backend",
+      "image": "https://hub.docker.com/r/phalcode/gamevault-backend",
+      "supported_architectures": ["amd64", "arm64"],
+      "id": "gamevau.lt-p",
+      "screenshots": [
+        "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/images/Screenshot-1.png",
+        "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/images/Screenshot-2.png",
+        "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/images/Screenshot-3.png",
+        "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/images/Screenshot-4.png",
+        "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/images/Screenshot-5.png"
+      ],
+      "logo": [],
+      "icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/images/logo.png",
+      "artefacts": {},
+      "compose": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/cosmos-compose.json"
+    }
+  ]
 }
