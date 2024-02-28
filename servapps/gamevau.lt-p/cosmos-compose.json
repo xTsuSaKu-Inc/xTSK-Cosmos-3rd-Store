@@ -1,0 +1,264 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "DB_HOST",
+        "label": "Postgres Database Host",
+        "initialValue": "localhost",
+        "type": "text"
+      },
+      {
+        "name": "DB_PORT",
+        "label": "Postgres Database Port",
+        "initialValue": "5432",
+        "type": "text"
+      },
+      {
+        "name": "DB_DATABASE",
+        "label": "Postgres Database Name",
+        "initialValue": "5432",
+        "type": "text"
+      },
+      {
+        "name": "DB_USERNAME",
+        "label": "Postgres Database Username",
+        "initialValue": "gamevault",
+        "type": "text"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "label": "Postgres Database Password",
+        "initialValue": "default_password@gamevault",
+        "type": "password"
+      },
+      {
+        "name": "SERVER_ADMIN_USERNAME",
+        "label": "Gamevault Server Username",
+        "initialValue": "admin",
+        "type": "text"
+      },
+      {
+        "name": "RAWG_API_KEY",
+        "label": "API Keys of RAWG.io (Optional)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD",
+        "label": "Skip Chromium Download for Puppeteer (true|false)",
+        "initialValue": "true",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_PORT",
+        "label": "Port for Server Backend",
+        "initialValue": "8080",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_CORS_ALLOWED_ORIGINS",
+        "label": "Cors Allowed",
+        "initialValue": "*",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_REGISTRATION_DISABLED",
+        "label": "Can Registered New User (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_ONLINE_ACTIVITIES_DISABLED",
+        "label": "Disable Online Activity (such as ONLINE, BUSY, PLAYING, etc.) (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_ACCOUNT_ACTIVATION_DISABLED",
+        "label": "Disable Account Activation Needed by admin (such as ONLINE, BUSY, PLAYING, etc.) (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_ADMIN_PASSWORD",
+        "label": "Reset Admin Password (Only if NEEDED)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_API_DOCS_ENABLED",
+        "label": "Enable Server API Documentation (Only if NEEDED)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "IMAGE_MAX_SIZE_IN_KB",
+        "label": "Maximum image upload size on this server in KB. (0 for disable image upload)",
+        "initialValue": "10000",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_MAX_DOWNLOAD_BANDWIDTH_IN_KBPS",
+        "label": "Maximum bandwidth for downloads on this server in KB/s.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "GAMES_SEARCH_RECURSIVE",
+        "label": "If indexer should search for games in subfolders. (true|false)",
+        "initialValue": "true",
+        "type": "text"
+      },
+      {
+        "name": "USERS_REQUIRE_EMAIL",
+        "label": "Required Email for new registrations (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "USERS_REQUIRE_FIRST_NAME",
+        "label": "Required First Name for new registrations (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "USERS_REQUIRE_LAST_NAME",
+        "label": "Required Last Name for new registrations (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "PLUGIN_ENABLED",
+        "label": "If set to true, the server will try to load and run plugins listed in the PLUGIN_SOURCES array. (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "PLUGIN_SOURCES",
+        "label": "A list of paths for GameVault plugins to load, separated by commas.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "phalcode/gamevault-backend",
+      "container_name": "{ServiceName}-API",
+      "hostname": "{ServiceName}",
+      "security_opt": ["seccomp:unconfined"],
+      "network_mode": "cosmos-{ServiceName}-default",
+      "environment": [
+        "DB_HOST={Context.DB_HOST}",
+        "DB_PORT={Context.DB_PORT}",
+        "DB_DATABASE={Context.DB_DATABASE}",
+        "DB_USERNAME={Context.DB_USERNAME}",
+        "DB_PASSWORD={Context.DB_PASSWORD}",
+        "SERVER_ADMIN_USERNAME={Context.SERVER_ADMIN_USERNAME}",
+        "SERVER_ADMIN_PASSWORD={Context.SERVER_ADMIN_PASSWORD}",
+        "RAWG_API_KEY={Context.RAWG_API_KEY}",
+        "NODE_VERSION=20.11.0",
+        "YARN_VERSION=1.22.19",
+        "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD={Context.PUPPETEER_SKIP_CHROMIUM_DOWNLOAD}",
+        "NPM_CONFIG_PREFIX=/home/node/.npm-global",
+        "PNPM_HOME=/pnpm",
+        "SERVER_PORT={Context.SERVER_PORT}",
+        "NODE_ENV=production",
+        "SERVER_CORS_ALLOWED_ORIGINS={Context.SERVER_CORS_ALLOWED_ORIGINS}",
+        "SERVER_REGISTRATION_DISABLED={Context.SERVER_REGISTRATION_DISABLED}",
+        "SERVER_ONLINE_ACTIVITIES_DISABLED={Context.SERVER_ONLINE_ACTIVITIES_DISABLED}",
+        "SERVER_ACCOUNT_ACTIVATION_DISABLED={Context.SERVER_ACCOUNT_ACTIVATION_DISABLED}",
+        "SERVER_API_DOCS_ENABLED={Context.SERVER_API_DOCS_ENABLED}",
+        "IMAGE_MAX_SIZE_IN_KB={Context.IMAGE_MAX_SIZE_IN_KB}",
+        "SERVER_MAX_DOWNLOAD_BANDWIDTH_IN_KBPS={Context.SERVER_MAX_DOWNLOAD_BANDWIDTH_IN_KBPS}",
+        "GAMES_SEARCH_RECURSIVE={Context.GAMES_SEARCH_RECURSIVE}",
+        "USERS_REQUIRE_EMAIL={Context.USERS_REQUIRE_EMAIL}",
+        "USERS_REQUIRE_FIRST_NAME={Context.USERS_REQUIRE_FIRST_NAME}",
+        "USERS_REQUIRE_LAST_NAME={Context.USERS_REQUIRE_LAST_NAME}",
+        "PLUGIN_ENABLED={Context.PLUGIN_ENABLED}",
+        "PLUGIN_SOURCES={Context.PLUGIN_SOURCES}"
+      ],
+      "labels": {
+        "cosmos-persistent-env": "SERVER_ADMIN_USERNAME",
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos.stack": "{ServiceName}-Stack",
+        "cosmos.stack.main": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/images/logo.png"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-Games",
+          "target": "/files",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-Images",
+          "target": "/files",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-Logs",
+          "target": "/logs",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-DB",
+          "target": "/db",
+          "type": "volume"
+        }
+      ],
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expost {ServiceName} to the internet",
+          "useHost": false,
+          "target": "http://{ServiceName}:{Context.SERVER_PORT}",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "StartShield": {
+            "Enabled": true
+          }
+        }
+      ],
+      "restart": "unless-stopped"
+    },
+    "{ServiceName}-Postgres": {
+      "image": "postgres:15",
+      "container_name": "{ServiceName}-Postgres",
+      "security_opt": ["seccomp:unconfined"],
+      "network_mode": "cosmos-{ServiceName}-default",
+      "environment": [
+        "POSTGRES_USER={Context.DB_USERNAME}",
+        "POSTGRES_PASSWORD={Context.DB_PASSWORD}",
+        "POSTGRES_DB={Context.DB_DATABASE}"
+      ],
+      "labels": {
+        "cosmos-persistent-env": "POSTGRES_USER, POSTGRES_DB",
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos.stack": "{ServiceName}-Stack",
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/images/logo.png"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-Postgres",
+          "target": "/var/lib/postgresql/data",
+          "type": "volume"
+        }
+      ],
+      "routes": [],
+      "restart": "unless-stopped"
+    },
+    "networks": {
+      "cosmos-{ServiceName}-default": {
+        "Labels": {
+          "cosmos.stack": "gamevault-backend"
+        }
+      }
+    }
+  }
+}

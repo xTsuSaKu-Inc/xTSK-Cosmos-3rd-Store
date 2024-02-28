@@ -1,0 +1,9 @@
+{
+  "name": "gamevau.lt-p",
+  "longDescription": "<p>the self-hosted gaming platform for drm-free games.</p>",
+  "description": "the self-hosted gaming platform for drm-free games.",
+  "tags": ["gamevau.lt-p", "Gamevault", "gamevault", "Game", "DRM"],
+  "repository": "https://github.com/Phalcode/gamevault-backend",
+  "image": "https://hub.docker.com/r/phalcode/gamevault-backend/",
+  "supported_architectures": ["amd64", "arm64"]
+}

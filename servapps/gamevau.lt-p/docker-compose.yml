@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  gamevault-backend:
+    image: phalcode/gamevault-backend:latest
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_USERNAME: gamevault
+      DB_PASSWORD: YOURPASSWORDHERE
+      # The following line grants Admin Role to the account with this username upon registration.
+      SERVER_ADMIN_USERNAME: admin
+      # Uncomment and insert your RAWG API Key here if you have one (http://rawg.io/login?forward=developer)
+      # RAWG_API_KEY: YOURAPIKEYHERE
+    volumes:
+      # Mount the folder where your games are
+      - /your/games/folder:/files
+      # Mount the folder where GameVault should store its images
+      - /your/images/folder:/images
+    ports:
+      - 8080:8080
+  db:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: gamevault
+      POSTGRES_PASSWORD: YOURPASSWORDHERE
+      POSTGRES_DB: gamevault
+    volumes:
+      # Mount the folder where your PostgreSQL database files should land
+      - /your/database/folder:/var/lib/postgresql/data
