@@ -87,8 +87,8 @@
       },
       {
         "name": "SERVER_API_DOCS_ENABLED",
-        "label": "Enable Server API Documentation (Only if NEEDED)",
-        "initialValue": "",
+        "label": "Enable Server API Documentation (Only if NEEDED)(true|false)",
+        "initialValue": "false",
         "type": "text"
       },
       {
