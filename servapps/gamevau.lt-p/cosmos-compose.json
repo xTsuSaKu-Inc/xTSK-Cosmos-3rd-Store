@@ -100,7 +100,7 @@
       {
         "name": "SERVER_MAX_DOWNLOAD_BANDWIDTH_IN_KBPS",
         "label": "Maximum bandwidth for downloads on this server in KB/s.",
-        "initialValue": "",
+        "initialValue": "1000000",
         "type": "text"
       },
       {
