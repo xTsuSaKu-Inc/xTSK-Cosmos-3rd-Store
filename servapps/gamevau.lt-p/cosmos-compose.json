@@ -4,7 +4,7 @@
       {
         "name": "DB_HOST",
         "label": "Postgres Database Host",
-        "initialValue": "localhost",
+        "initialValue": "{ServiceName}-Postgres",
         "type": "text"
       },
       {
@@ -136,7 +136,7 @@
       {
         "name": "PLUGIN_SOURCES",
         "label": "A list of paths for GameVault plugins to load, separated by commas.",
-        "initialValue": "",
+        "initialValue": "''",
         "type": "text"
       }
     ]
@@ -226,9 +226,9 @@
       ],
       "restart": "unless-stopped"
     },
-    "{ServiceName}-Postgres": {
+    "{Context.DB_HOST}": {
       "image": "postgres",
-      "container_name": "{ServiceName}-Postgres",
+      "container_name": "{Context.DB_HOST}",
       "security_opt": ["seccomp:unconfined"],
       "network_mode": "cosmos-{ServiceName}-default",
       "environment": [
