@@ -38,6 +38,12 @@
         "type": "text"
       },
       {
+        "name": "SERVER_ADMIN_PASSWORD",
+        "label": "Reset Admin Password (Only if NEEDED)",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
         "name": "RAWG_API_KEY",
         "label": "API Keys of RAWG.io (Optional)",
         "initialValue": "",
@@ -78,12 +84,6 @@
         "label": "Disable Account Activation Needed by admin (such as ONLINE, BUSY, PLAYING, etc.) (true|false)",
         "initialValue": "false",
         "type": "text"
-      },
-      {
-        "name": "SERVER_ADMIN_PASSWORD",
-        "label": "Reset Admin Password (Only if NEEDED)",
-        "initialValue": "",
-        "type": "password"
       },
       {
         "name": "SERVER_API_DOCS_ENABLED",
