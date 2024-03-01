@@ -12,32 +12,31 @@
   "minVersion": "0.8.0",
   "services": {
     "{ServiceName}": {
-      "image": "ghcr.io/muety/wakapi",
       "container_name": "{ServiceName}",
-      "hostname": "{ServiceName}",
-      "security_opt": ["seccomp:unconfined"],
-      "network_mode": "cosmos-{ServiceName}-default",
+      "image": "ghcr.io/muety/wakapi",
       "environment": ["WAKAPI_PASSWORD_SALT={Context.WAKAPI_PASSWORD_SALT}"],
-      "labels": {
-        "cosmos-persistent-env": "WAKAPI_PASSWORD_SALT",
-        "cosmos-force-network-secured": "true",
-        "cosmos-auto-update": "true",
-        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/wakapi/images/logo.png"
-      },
+      "labels": {},
+      "devices": [],
+      "expose": [],
+      "tty": true,
+      "stdin_open": true,
+      "ports": [],
+      "restart": "always",
       "volumes": [
         {
-          "source": "{ServiceName}-data",
-          "target": "/data",
-          "type": "volume"
+          "Type": "volume",
+          "Source": "",
+          "Target": "/data"
         }
       ],
+      "networks": {},
       "routes": [
         {
           "name": "{ServiceName}",
-          "description": "Expost {ServiceName} to the internet",
-          "useHost": false,
-          "target": "http://{ServiceName}:3000",
           "mode": "SERVAPP",
+          "description": "Expose {ServiceName} to the internet",
+          "useHost": true,
+          "target": "http://{ServiceName}:3000",
           "Timeout": 14400000,
           "ThrottlePerMinute": 12000,
           "BlockCommonBots": true,
@@ -45,11 +44,7 @@
             "Enabled": true
           }
         }
-      ],
-      "restart": "unless-stopped"
-    },
-    "networks": {
-      "cosmos-{ServiceName}-default": {}
+      ]
     }
   }
 }
