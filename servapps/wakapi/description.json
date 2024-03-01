@@ -1,0 +1,9 @@
+{
+  "name": "Wakapi",
+  "longDescription": "<p>A minimalist, self-hosted WakaTime-compatible backend for coding statistics.</p>",
+  "description": "A minimalist, self-hosted WakaTime-compatible backend for coding statistics.",
+  "tags": ["Wakapi", "Time", "wakapi", "tracking"],
+  "repository": "https://github.com/muety/wakapi",
+  "image": "https://github.com/muety/wakapi/pkgs/container/wakapi/",
+  "supported_architectures": ["amd64", "arm64"]
+}

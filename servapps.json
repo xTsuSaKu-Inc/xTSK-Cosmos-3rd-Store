@@ -19,5 +19,22 @@
     "icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/images/logo.png",
     "artefacts": {},
     "compose": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/cosmos-compose.json"
+  },
+  {
+    "name": "Wakapi",
+    "longDescription": "<p>A minimalist, self-hosted WakaTime-compatible backend for coding statistics.</p>",
+    "description": "A minimalist, self-hosted WakaTime-compatible backend for coding statistics.",
+    "tags": ["Wakapi", "Time", "wakapi", "tracking"],
+    "repository": "https://github.com/muety/wakapi",
+    "image": "https://github.com/muety/wakapi/pkgs/container/wakapi/",
+    "supported_architectures": ["amd64", "arm64"],
+    "id": "wakapi",
+    "screenshots": [
+      "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/wakapi/images/Screenshot-1.webp"
+    ],
+    "logo": [],
+    "icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/wakapi/images/logo.png",
+    "artefacts": {},
+    "compose": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/wakapi/cosmos-compose.json"
   }
 ]
