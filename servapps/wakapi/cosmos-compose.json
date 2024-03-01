@@ -12,16 +12,16 @@
   "minVersion": "0.8.0",
   "services": {
     "{ServiceName}": {
-      "container_name": "{ServiceName}",
       "image": "ghcr.io/muety/wakapi",
-      "environment": ["WAKAPI_PASSWORD_SALT={Context.WAKAPI_PASSWORD_SALT}"],
+      "container_name": "{ServiceName}",
       "hostname": "{ServiceName}",
       "security_opt": ["seccomp:unconfined"],
-      "networks": {},
+      "network_mode": {},
+      "environment": [
+        "WAKAPI_PASSWORD_SALT={Context.WAKAPI_PASSWORD_SALT}"
+      ],
       "labels": {
-        "cosmos-persistent-env": "WAKAPI_PASSWORD_SALT",
-        "cosmos-force-network-secured": "true",
-        "cosmos-auto-update": "true",
+        "cosmos-persistent-env": "SERVER_ADMIN_USERNAME",
         "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/wakapi/images/logo.png"
       },
       "volumes": [
@@ -35,7 +35,7 @@
         {
           "name": "{ServiceName}",
           "description": "Expost {ServiceName} to the internet",
-          "useHost": true,
+          "useHost": false,
           "target": "http://{ServiceName}:3000",
           "mode": "SERVAPP",
           "Timeout": 14400000,
@@ -47,9 +47,6 @@
         }
       ],
       "restart": "unless-stopped"
-    },
-    "networks": {
-      "cosmos-{ServiceName}-default": {}
     }
   }
 }
