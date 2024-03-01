@@ -37,7 +37,7 @@
         {
           "name": "{ServiceName}",
           "description": "Expost {ServiceName} to the internet",
-          "useHost": false,
+          "useHost": true,
           "target": "http://{ServiceName}:3000",
           "mode": "SERVAPP",
           "Timeout": 14400000,
