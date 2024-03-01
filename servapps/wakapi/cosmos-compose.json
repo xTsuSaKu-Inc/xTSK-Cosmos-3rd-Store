@@ -12,25 +12,35 @@
   "minVersion": "0.8.0",
   "services": {
     "{ServiceName}": {
-      "image": "ghcr.io/muety/wakapi",
       "container_name": "{ServiceName}",
-      "hostname": "{ServiceName}",
-      "security_opt": ["seccomp:unconfined"],
-      "network": {},
+      "image": "ghcr.io/muety/wakapi",
       "environment": [
-        "WAKAPI_PASSWORD_SALT={Context.WAKAPI_PASSWORD_SALT}"
+        "WAKAPI_PASSWORD_SALT={Context.WAKAPI_PASSWORD_SALT}",
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "ENVIRONMENT=prod",
+        "WAKAPI_DB_TYPE=sqlite3",
+        "WAKAPI_DB_USER=",
+        "WAKAPI_DB_PASSWORD=",
+        "WAKAPI_DB_HOST=",
+        "WAKAPI_DB_NAME=/data/wakapi.db",
+        "WAKAPI_LISTEN_IPV4=0.0.0.0",
+        "WAKAPI_INSECURE_COOKIES=true",
+        "WAKAPI_ALLOW_SIGNUP=true"
       ],
-      "labels": {
-        "cosmos-persistent-env": "SERVER_ADMIN_USERNAME",
-        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/wakapi/images/logo.png"
-      },
+      "labels": {},
+      "ports": [],
       "volumes": [
         {
-          "source": "{ServiceName}-data",
-          "target": "/data",
-          "type": "volume"
+          "Type": "volume",
+          "Source": "{ServiceName}-data",
+          "Target": "/data"
         }
       ],
+      "networks": {
+        "bridge": {}
+      },
+      "hostname": "{ServiceName}",
+      "network_mode": "default",
       "routes": [
         {
           "name": "{ServiceName}",
