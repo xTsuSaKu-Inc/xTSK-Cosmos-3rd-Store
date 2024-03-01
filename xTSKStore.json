@@ -56,6 +56,23 @@
       "icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/atsumeru/images/logo.png",
       "artefacts": {},
       "compose": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/atsumeru/cosmos-compose.json"
+    },
+    {
+      "name": "Karaoke Ethernal",
+      "longDescription": "<p>Host awesome karaoke parties where everyone can easily find and queue songs from their phone's browser. The player is also fully browser-based with support for MP3+G, MP4 videos and WebGL visualizations. The server is self-hosted and runs on nearly everything.</p>",
+      "description": "Host awesome karaoke parties where everyone can easily find and queue songs from their phone's browser. The player is also fully browser-based with support for MP3+G, MP4 videos and WebGL visualizations. The server is self-hosted and runs on nearly everything.",
+      "tags": ["Karaoke", "Ethernal", "karaoke", "ethernal", "music"],
+      "repository": "https://github.com/bhj/KaraokeEternal",
+      "image": "https://hub.docker.com/r/radrootllc/karaoke-eternal/",
+      "supported_architectures": ["amd64", "arm64"],
+      "id": "karaoke-eternal",
+      "screenshots": [
+        "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/karaoke-eternal/images/Screenshot-1.jpg"
+      ],
+      "logo": [],
+      "icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/karaoke-eternal/images/logo.png",
+      "artefacts": {},
+      "compose": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/karaoke-eternal/cosmos-compose.json"
     }
   ]
 }
