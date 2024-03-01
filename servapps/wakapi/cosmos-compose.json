@@ -4,7 +4,7 @@
       {
         "name": "WAKAPI_PASSWORD_SALT",
         "label": "Wakapi Pasword Salt",
-        "initialValue": "{Password.0}",
+        "initialValue": "UFDA0SGnV9Zeb1T6jTvkuWV8FTj7p92d",
         "type": "text"
       }
     ]
