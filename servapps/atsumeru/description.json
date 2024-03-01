@@ -1,0 +1,9 @@
+{
+  "name": "Atsumeru",
+  "longDescription": "<p>Free self-hosted (opens new window)media server for manga/comics/light novels with focus on cataloging and collecting content, easy filling of Metadata and working speed</p>",
+  "description": "free self-hosted (opens new window)media server for manga/comics/light novels with focus on cataloging and collecting content, easy filling of Metadata and working speed.",
+  "tags": ["atsumeru", "Atsumeru", "book", "manga", "comic", "DRM"],
+  "repository": "https://github.com/AtsumeruDev/Atsumeru",
+  "image": "https://hub.docker.com/r/atsumerudev/atsumeru/",
+  "supported_architectures": ["amd64", "arm64"]
+}
