@@ -16,7 +16,7 @@
       "container_name": "{ServiceName}",
       "hostname": "{ServiceName}",
       "security_opt": ["seccomp:unconfined"],
-      "network_mode": {},
+      "network": {},
       "environment": [
         "WAKAPI_PASSWORD_SALT={Context.WAKAPI_PASSWORD_SALT}"
       ],
