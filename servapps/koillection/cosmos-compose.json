@@ -33,7 +33,7 @@
         "cosmos-auto-update": "true",
         "cosmos.stack": "{ServiceName}",
         "cosmos.stack.main": "{ServiceName}",
-        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/shared/logo/postgres.png"
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/koillection/images/logo.png"
       },
       "volumes": [
         {
@@ -75,7 +75,7 @@
         "cosmos-auto-update": "true",
         "cosmos.stack": "{ServiceName}",
         "cosmos.stack.main": "{ServiceName}",
-        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/koillection/images/logo.png"
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/shared/logo/postgres.png"
       },
       "volumes": [
         {
