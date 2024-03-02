@@ -11,4 +11,6 @@ this infomation and save
 
 | Name         | Description                 |
 | ------------ | --------------------------- |
+| [Atsumeru](https://github.com/AtsumeruDev/Atsumeru)| Free self-hosted mangas/comics/light novels media server. | 
+| [Karaoke Eternal](https://github.com/bhj/KaraokeEternal)| Host awesome karaoke parties where everyone can easily find and queue songs from their phone's browser. The player is also fully browser-based with support for MP3+G, MP4 videos and WebGL visualizations. The server is self-hosted and runs on nearly everything. | 
 | [Wakatime](https://github.com/muety/wakapi)| A minimalist, self-hosted WakaTime-compatible backend for coding statistics. | 
