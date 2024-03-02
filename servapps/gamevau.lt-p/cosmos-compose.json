@@ -207,7 +207,7 @@
       "labels": {
         "cosmos-persistent-env": "POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD",
         "cosmos.stack": "{ServiceName}-Stack",
-        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/gamevau.lt-p/images/logo.png"
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/shared/logo/postgres.png"
       },
       "volumes": [
         {

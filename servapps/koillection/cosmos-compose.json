@@ -1,0 +1,98 @@
+{
+  "cosmos-installer": {
+    "form": []
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "koillection/koillection",
+      "container_name": "{ServiceName}",
+      "hostname": "{ServiceName}",
+      "security_opt": ["seccomp:unconfined"],
+      "network_mode": "cosmos-{ServiceName}-default",
+      "environment": [
+        "DB_DRIVER=pdo_pgsql",
+        "DB_VERSION=16",
+        "DB_HOST={ServiceName}-Postgres",
+        "DB_PORT=5432",
+        "DB_NAME=koillection",
+        "DB_USER=koillection",
+        "DB_PASSWORD=${Password.0}",
+        "APP_DEBUG=0",
+        "APP_ENV=prod",
+        "HTTPS_ENABLED=1",
+        "UPLOAD_MAX_FILESIZE=20M",
+        "PHP_MEMORY_LIMIT=512M",
+        "PHP_TZ=Asia/Bangkok",
+        "CORS_ALLOW_ORIGIN='^https?://(localhost|127\\.0\\.0\\.1)(:[0-9]+)?$'",
+        "JWT_SECRET_KEY=%kernel.project_dir%/config/jwt/private.pem",
+        "JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos.stack": "{ServiceName}",
+        "cosmos.stack.main": "{ServiceName}",
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/shared/logo/postgres.png"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-uploads",
+          "target": "/uploads",
+          "type": "volume"
+        }
+      ],
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expost {ServiceName} to the internet",
+          "useHost": true,
+          "target": "http://{ServiceName}:80",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "StartShield": {
+            "Enabled": true
+          }
+        }
+      ],
+      "restart": "unless-stopped"
+    },
+    "{ServiceName}-Postgres": {
+      "image": "postgres:16",
+      "container_name": "{ServiceName}-Postgres",
+      "hostname": "{ServiceName}-Postgres",
+      "security_opt": ["seccomp:unconfined"],
+      "network_mode": "cosmos-{ServiceName}-default",
+      "environment": [
+        "POSTGRES_DB=koillection",
+        "POSTGRES_USER=koillection",
+        "POSTGRES_PASSWORD=${Password.0}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos.stack": "{ServiceName}",
+        "cosmos.stack.main": "{ServiceName}",
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/koillection/images/logo.png"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-db",
+          "target": "/var/lib/postgresql/data",
+          "type": "volume"
+        }
+      ],
+      "routes": [],
+      "restart": "unless-stopped"
+    }
+  },
+  "networks": {
+    "cosmos-{ServiceName}-default": {
+      "Labels": {
+        "cosmos.stack": "gamevault-backend"
+      }
+    }
+  }
+}

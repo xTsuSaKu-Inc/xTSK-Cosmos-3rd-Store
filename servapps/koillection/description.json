@@ -1,0 +1,9 @@
+{
+  "name": "Koillection",
+  "longDescription": "<p>self-hosted collection manager created to keep track of physical (mostly) collections of any kind like books, DVDs, stamps, games minimalist, self-hosted WakaTime-compatible backend for coding statistics.</p>",
+  "description": "self-hosted collection manager created to keep track of physical (mostly) collections of any kind like books, DVDs, stamps, games",
+  "tags": ["Wakapi", "Time", "wakapi", "tracking"],
+  "repository": "https://github.com/benjaminjonard/koillection",
+  "image": "https://hub.docker.com/r/koillection/koillection/",
+  "supported_architectures": ["amd64", "arm64"]
+}
