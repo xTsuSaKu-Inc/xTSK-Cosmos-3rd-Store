@@ -17,7 +17,7 @@
         "DB_PORT=5432",
         "DB_NAME=koillection",
         "DB_USER=koillection",
-        "DB_PASSWORD=${Password.0}",
+        "DB_PASSWORD={Passwords.0}",
         "APP_DEBUG=0",
         "APP_ENV=prod",
         "HTTPS_ENABLED=1",
@@ -68,7 +68,7 @@
       "environment": [
         "POSTGRES_DB=koillection",
         "POSTGRES_USER=koillection",
-        "POSTGRES_PASSWORD=${Password.0}"
+        "POSTGRES_PASSWORD={Passwords.0}"
       ],
       "labels": {
         "cosmos-force-network-secured": "true",
@@ -91,7 +91,7 @@
   "networks": {
     "cosmos-{ServiceName}-default": {
       "Labels": {
-        "cosmos.stack": "gamevault-backend"
+        "cosmos.stack": "{ServiceName}"
       }
     }
   }
