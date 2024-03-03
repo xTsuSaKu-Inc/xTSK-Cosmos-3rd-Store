@@ -139,7 +139,7 @@
     {if Context.USE_EXTERNAL}
     {else},
     "{ServiceName}-postgres": {
-      "image": "ghcr.io/evroon/bracket-frontend",
+      "image": "postgres",
       "container_name": "{ServiceName}-postgres",
       "hostname": "{ServiceName}-backend",
       "security_opt": ["seccomp:unconfined"],
