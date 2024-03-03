@@ -1,0 +1,31 @@
+{
+  "cosmos-installer": {
+    "form": []
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/lodestone-team/lodestone_core",
+      "container_name": "{ServiceName}",
+      "hostname": "{ServiceName}",
+      "security_opt": ["seccomp:unconfined"],
+      "network_mode": "default",
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/lodestone-core/images/logo.png"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-data",
+          "target": "/home/user/.lodestone",
+          "type": "volume"
+        }
+      ],
+      "ports":[
+        "16662:16662/tcp"
+      ],
+      "restart": "unless-stopped"
+    }
+  }
+}

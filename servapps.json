@@ -88,5 +88,22 @@
     "icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/koillection/images/logo.png",
     "artefacts": {},
     "compose": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/koillection/cosmos-compose.json"
+  },
+  {
+    "name": "Lodestone Core",
+    "longDescription": "<p>A free, open source server hosting tool for Minecraft and other multiplayers.</p>",
+    "description": "A free, open source server hosting tool for Minecraft and other multiplayers.",
+    "tags": ["Loadstone", "lodestone", "core", "minecraft", "game", "server"],
+    "repository": "https://github.com/Lodestone-Team/lodestone_core",
+    "image": "https://github.com/Lodestone-Team/lodestone_core/pkgs/container/lodestone_core",
+    "supported_architectures": ["amd64", "arm64"],
+    "id": "koillection",
+    "screenshots": [
+      "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/lodestone-core/images/Screenshot-1.jpg"
+    ],
+    "logo": [],
+    "icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/lodestone-core/images/logo.png",
+    "artefacts": {},
+    "compose": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/lodestone-core/cosmos-compose.json"
   }
 ]

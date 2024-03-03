@@ -1,0 +1,9 @@
+{
+  "name": "Lodestone Core",
+  "longDescription": "<p>A free, open source server hosting tool for Minecraft and other multiplayers.</p>",
+  "description": "A free, open source server hosting tool for Minecraft and other multiplayers.",
+  "tags": ["Loadstone", "lodestone", "core", "minecraft", "game", "server"],
+  "repository": "https://github.com/Lodestone-Team/lodestone_core",
+  "image": "https://github.com/Lodestone-Team/lodestone_core/pkgs/container/lodestone_core",
+  "supported_architectures": ["amd64", "arm64"]
+}
