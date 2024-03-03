@@ -184,6 +184,13 @@
         "POSTGRES_PASSWORD={Passwords.0}",
         "POSTGRES_DB=gamevault"
       ],
+      "volumes": [
+        {
+          "source": "{ServiceName}-db",
+          "target": "/var/lib/postgresql/data",
+          "type": "volume"
+        }
+      ],
       "container_name": "{ServiceName}-POSTGRES",
       "network_mode": "cosmos-{ServiceName}-default",
       "labels": {
