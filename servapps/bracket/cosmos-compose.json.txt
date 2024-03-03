@@ -48,7 +48,7 @@
         "name": "PG_PASS",
         "label": "Password.",
         "initialValue": "{Passwords.0}",
-        "type": "text"
+        "type": "password"
       },
       {
         "name": "PG_DB",
