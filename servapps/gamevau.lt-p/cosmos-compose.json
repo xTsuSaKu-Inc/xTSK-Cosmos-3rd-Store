@@ -1,116 +1,110 @@
 {
-    "cosmos-installer": {
-      "form": [
-        {
-          "name": "SERVER_ADMIN_USERNAME",
-          "label": "Gamevault Server Username",
-          "initialValue": "admin",
-          "type": "text"
-        },
-        {
-          "name": "SERVER_ADMIN_PASSWORD",
-          "label": "Reset Admin Password (Only if NEEDED)",
-          "initialValue": "",
-          "type": "password"
-        },
-        {
-          "name": "RAWG_API_KEY",
-          "label": "API Keys of RAWG.io (Optional)",
-          "initialValue": "",
-          "type": "text"
-        },
-        {
-          "name": "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD",
-          "label": "Skip Chromium Download for Puppeteer (true|false)",
-          "initialValue": "true",
-          "type": "text"
-        },
-        {
-          "name": "SERVER_PORT",
-          "label": "Port for Server Backend",
-          "initialValue": "8080",
-          "type": "text"
-        },
-        {
-          "name": "SERVER_CORS_ALLOWED_ORIGINS",
-          "label": "Cors Allowed",
-          "initialValue": "*",
-          "type": "text"
-        },
-        {
-          "name": "SERVER_REGISTRATION_DISABLED",
-          "label": "Can Registered New User (true|false)",
-          "initialValue": "false",
-          "type": "text"
-        },
-        {
-          "name": "SERVER_ONLINE_ACTIVITIES_DISABLED",
-          "label": "Disable Online Activity (such as ONLINE, BUSY, PLAYING, etc.) (true|false)",
-          "initialValue": "false",
-          "type": "text"
-        },
-        {
-          "name": "SERVER_ACCOUNT_ACTIVATION_DISABLED",
-          "label": "Disable Account Activation Needed by admin (such as ONLINE, BUSY, PLAYING, etc.) (true|false)",
-          "initialValue": "false",
-          "type": "text"
-        },
-        {
-          "name": "SERVER_API_DOCS_ENABLED",
-          "label": "Enable Server API Documentation (Only if NEEDED)(true|false)",
-          "initialValue": "false",
-          "type": "text"
-        },
-        {
-          "name": "IMAGE_MAX_SIZE_IN_KB",
-          "label": "Maximum image upload size on this server in KB. (0 for disable image upload)",
-          "initialValue": "10000",
-          "type": "text"
-        },
-        {
-          "name": "SERVER_MAX_DOWNLOAD_BANDWIDTH_IN_KBPS",
-          "label": "Maximum bandwidth for downloads on this server in KB/s.",
-          "initialValue": "1000000",
-          "type": "text"
-        },
-        {
-          "name": "GAMES_SEARCH_RECURSIVE",
-          "label": "If indexer should search for games in subfolders. (true|false)",
-          "initialValue": "true",
-          "type": "text"
-        },
-        {
-          "name": "USERS_REQUIRE_EMAIL",
-          "label": "Required Email for new registrations (true|false)",
-          "initialValue": "false",
-          "type": "text"
-        },
-        {
-          "name": "USERS_REQUIRE_FIRST_NAME",
-          "label": "Required First Name for new registrations (true|false)",
-          "initialValue": "false",
-          "type": "text"
-        },
-        {
-          "name": "USERS_REQUIRE_LAST_NAME",
-          "label": "Required Last Name for new registrations (true|false)",
-          "initialValue": "false",
-          "type": "text"
-        },
-        {
-          "name": "PLUGIN_ENABLED",
-          "label": "If set to true, the server will try to load and run plugins listed in the PLUGIN_SOURCES array. (true|false)",
-          "initialValue": "false",
-          "type": "text"
-        },
-        {
-          "name": "PLUGIN_SOURCES",
-          "label": "A list of paths for GameVault plugins to load, separated by commas.",
-          "initialValue": "''",
-          "type": "text"
-        }
-      ]
-    },
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "SERVER_ADMIN_USERNAME",
+        "label": "Gamevault Server Username",
+        "initialValue": "admin",
+        "type": "text"
+      },
+      {
+        "name": "RAWG_API_KEY",
+        "label": "API Keys of RAWG.io (Optional)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD",
+        "label": "Skip Chromium Download for Puppeteer (true|false)",
+        "initialValue": "true",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_PORT",
+        "label": "Port for Server Backend",
+        "initialValue": "8080",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_CORS_ALLOWED_ORIGINS",
+        "label": "Cors Allowed",
+        "initialValue": "*",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_REGISTRATION_DISABLED",
+        "label": "Can Registered New User (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_ONLINE_ACTIVITIES_DISABLED",
+        "label": "Disable Online Activity (such as ONLINE, BUSY, PLAYING, etc.) (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_ACCOUNT_ACTIVATION_DISABLED",
+        "label": "Disable Account Activation Needed by admin (such as ONLINE, BUSY, PLAYING, etc.) (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_API_DOCS_ENABLED",
+        "label": "Enable Server API Documentation (Only if NEEDED)(true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "IMAGE_MAX_SIZE_IN_KB",
+        "label": "Maximum image upload size on this server in KB. (0 for disable image upload)",
+        "initialValue": "10000",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_MAX_DOWNLOAD_BANDWIDTH_IN_KBPS",
+        "label": "Maximum bandwidth for downloads on this server in KB/s.",
+        "initialValue": "1000000",
+        "type": "text"
+      },
+      {
+        "name": "GAMES_SEARCH_RECURSIVE",
+        "label": "If indexer should search for games in subfolders. (true|false)",
+        "initialValue": "true",
+        "type": "text"
+      },
+      {
+        "name": "USERS_REQUIRE_EMAIL",
+        "label": "Required Email for new registrations (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "USERS_REQUIRE_FIRST_NAME",
+        "label": "Required First Name for new registrations (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "USERS_REQUIRE_LAST_NAME",
+        "label": "Required Last Name for new registrations (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "PLUGIN_ENABLED",
+        "label": "If set to true, the server will try to load and run plugins listed in the PLUGIN_SOURCES array. (true|false)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "PLUGIN_SOURCES",
+        "label": "A list of paths for GameVault plugins to load, separated by commas.",
+        "initialValue": "''",
+        "type": "text"
+      }
+    ]
+  },
   "minVersion": "0.8.0",
   "services": {
     "{ServiceName}": {
