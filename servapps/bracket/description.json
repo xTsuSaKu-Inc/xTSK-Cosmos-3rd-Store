@@ -1,0 +1,9 @@
+{
+  "name": "Bracket",
+  "longDescription": "<p>Tournament system meant to be easy to use. Bracket is written in async Python (with FastAPI) and Next.js as frontend using the Mantine library.</p>",
+  "description": "Tournament system meant to be easy to use. Bracket is written in async Python (with FastAPI) and Next.js as frontend using the Mantine library.",
+  "tags": ["Bracket", "bracket", "tournament", "management", "game", "team"],
+  "repository": "https://github.com/evroon/bracket/",
+  "image": "https://github.com/evroon/bracket/pkgs/container/bracket-backend/",
+  "supported_architectures": ["amd64", "arm64"]
+}

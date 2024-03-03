@@ -1,0 +1,170 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "NEXT_PUBLIC_API_BASE_URL",
+        "label": "URL with PORT of Backend (Recommand to use cosmos URLs)",
+        "initialValue": "http://localhost:8400",
+        "type": "text"
+      },
+      {
+        "name": "NEXT_PUBLIC_HCAPTCHA_SITE_KEY",
+        "label": "A list of paths for GameVault plugins to load, separated by commas.",
+        "initialValue": "10000000-ffff-ffff-ffff-000000000001",
+        "type": "text"
+      },
+      {
+        "name": "USE_EXTERNAL",
+        "label": "Do you want to use an EXTERNAL postgres-db?",
+        "initialValue": false,
+        "type": "checkbox"
+      },
+      {
+        "name": "USE_INTERNAL",
+        "label": "PLEASE CHECK THIS BOX INVERT OF ABOVE!!",
+        "initialValue": true,
+        "type": "checkbox"
+      }
+      {if Context.USE_EXTERNAL},
+      {
+        "name": "PG_HOST",
+        "label": "HOST.",
+        "initialValue": "{ServiceName}-postgres",
+        "type": "text"
+      },
+      {
+        "name": "PG_PORT",
+        "label": "PORT.",
+        "initialValue": "5432",
+        "type": "text"
+      },
+      {
+        "name": "PG_USER",
+        "label": "Username.",
+        "initialValue": "bracket_dev",
+        "type": "text"
+      },
+      {
+        "name": "PG_PASS",
+        "label": "Password.",
+        "initialValue": "{Passwords.0}",
+        "type": "text"
+      },
+      {
+        "name": "PG_DB",
+        "label": "Database Name.",
+        "initialValue": "bracket_dev",
+        "type": "text"
+      }
+      {/if}
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/evroon/bracket-frontend",
+      "container_name": "{ServiceName}",
+      "hostname": "{ServiceName}",
+      "security_opt": ["seccomp:unconfined"],
+      "network_mode": "cosmos-{ServiceName}-default",
+      "environment": [
+        "NEXT_PUBLIC_API_BASE_URL={Context.NEXT_PUBLIC_API_BASE_URL}",
+        "NEXT_PUBLIC_HCAPTCHA_SITE_KEY={Context.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos.stack": "{ServiceName}",
+        "cosmos.stack.main": "{ServiceName}",
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/bracket/images/logo.png"
+      },
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expost {ServiceName} to the internet",
+          "useHost": true,
+          "target": "http://{ServiceName}:3000",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "StartShield": {
+            "Enabled": true
+          }
+        }
+      ],
+      "restart": "unless-stopped"
+    },
+    "{ServiceName}-backend": {
+      "image": "ghcr.io/evroon/bracket-backend",
+      "container_name": "{ServiceName}-backend",
+      "hostname": "{ServiceName}-backend",
+      "security_opt": ["seccomp:unconfined"],
+      "network_mode": "cosmos-{ServiceName}-default",
+      {if Context.USE_EXTERNAL}
+      "environment": [
+        "ENVIRONMENT=DEVELOPMENT",
+        "PG_DSN=postgresql://{Context.PG_USER}:{Context.PG_PASS}@{Context.PG_HOST}:{Context.PG_PORT}/{Context.PG_DB}"
+      ],
+      {else}
+      "environment": [
+        "ENVIRONMENT=DEVELOPMENT",
+        "PG_DSN=postgresql://bracket_db:{Passwords.0}@{ServiceName}-postgres:5432/bracket_db"
+      ],
+      {/if}
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos.stack": "{ServiceName}",
+        "cosmos.stack.main": "{ServiceName}",
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/bracket/images/logo.png"
+      },
+      "routes": [
+        {
+          "name": "{ServiceName}-backend",
+          "description": "Expost {ServiceName}-backend to the internet",
+          "useHost": true,
+          "target": "http://{ServiceName}-backend:8400",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "StartShield": {
+            "Enabled": true
+          }
+        }
+      ],
+      "restart": "unless-stopped"
+    }
+    {if Context.USE_EXTERNAL}
+    {else},
+    "{ServiceName}-postgres": {
+      "image": "ghcr.io/evroon/bracket-frontend",
+      "container_name": "{ServiceName}-postgres",
+      "hostname": "{ServiceName}-backend",
+      "security_opt": ["seccomp:unconfined"],
+      "network_mode": "cosmos-{ServiceName}-default",
+      "environment": [
+        "POSTGRES_DB:bracket_db",
+        "POSTGRES_USER:bracket_db",
+        "POSTGRES_PASSWORD:{Passwords.0}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos.stack": "{ServiceName}",
+        "cosmos.stack.main": "{ServiceName}",
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/shared/logo/postgres.png"
+      },
+      "restart": "unless-stopped"
+    }
+    {/if}
+  },
+  "networks": {
+    "cosmos-{ServiceName}-default": {
+      "Labels": {
+        "cosmos.stack": "gamevault-backend"
+      }
+    }
+  }
+}
