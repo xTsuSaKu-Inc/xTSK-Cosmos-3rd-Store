@@ -1,0 +1,99 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "BEDROCK_PORT_RANGE",
+        "label": "Port Range of BEDROCK Server",
+        "initialValue": "19132-19133",
+        "type": "text"
+      },
+      {
+        "name": "JAVA_PORT_RANGE",
+        "label": "Port Range of JAVA Server",
+        "initialValue": "25500-25600",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "arcadiatechnology/crafty-4:latest",
+      "container_name": "{ServiceName}",
+      "hostname": "{ServiceName}",
+      "security_opt": ["seccomp:unconfined"],
+      "network_mode": "default",
+      "environment": ["TZ=Asia/Bangkok"],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/crafty-controller/images/logo.ico"
+      },
+      "volumes": [
+        {
+          "source": "/usr/{ServiceName}/root",
+          "target": "/crafty",
+          "type": "bind"
+        },
+        {
+          "source": "/usr/{ServiceName}/backups",
+          "target": "/crafty/backups",
+          "type": "bind"
+        },
+        {
+          "source": "/usr/{ServiceName}/logs",
+          "target": "/crafty/logs",
+          "type": "bind"
+        },
+        {
+          "source": "/usr/{ServiceName}/servers",
+          "target": "/crafty/servers",
+          "type": "bind"
+        },
+        {
+          "source": "/usr/{ServiceName}/import",
+          "target": "/crafty/import",
+          "type": "bind"
+        },
+        {
+          "source": "/usr/{ServiceName}/config",
+          "target": "/crafty/app/config",
+          "type": "bind"
+        }
+      ],
+      "ports":[
+        "{Context.BEDROCK_PORT_RANGE}:{Context.BEDROCK_PORT_RANGE}/udp",
+        "{Context.JAVA_PORT_RANGE}:{Context.JAVA_PORT_RANGE}"
+      ],
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expost {ServiceName} to the internet",
+          "useHost": true,
+          "target": "http://{ServiceName}:8000",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "StartShield": {
+            "Enabled": true
+          }
+        },
+        {
+          "name": "{ServiceName}-Dynmap",
+          "description": "Expost {ServiceName} to the internet",
+          "useHost": true,
+          "target": "http://{ServiceName}:8123",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "StartShield": {
+            "Enabled": true
+          }
+        }
+      ],
+      "restart": "unless-stopped"
+    }
+  }
+}

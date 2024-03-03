@@ -105,5 +105,29 @@
     "icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/lodestone-core/images/logo.png",
     "artefacts": {},
     "compose": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/lodestone-core/cosmos-compose.json"
+  },
+  {
+    "name": "Crafty Controller",
+    "longDescription": "<p>Crafty Controller is a free and open-source Minecraft launcher and manager that allows users to start and administer Minecraft servers from a user-friendly interface.</p>",
+    "description": "Crafty Controller is a free and open-source Minecraft launcher and manager that allows users to start and administer Minecraft servers from a user-friendly interface.",
+    "tags": [
+      "crafty",
+      "controller",
+      "crafty-controller",
+      "minecraft",
+      "game",
+      "server"
+    ],
+    "repository": "https://gitlab.com/crafty-controller/crafty-4",
+    "image": "https://gitlab.com/crafty-controller/crafty-4/container_registry/2952493",
+    "supported_architectures": ["amd64", "arm64"],
+    "id": "koillection",
+    "screenshots": [
+      "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/crafty-controller/images/Screenshot-1.jpg"
+    ],
+    "logo": [],
+    "icon": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/crafty-controller/images/logo.ico",
+    "artefacts": {},
+    "compose": "https://raw.githubusercontent.com/xTsuSaKu-Inc/xTSK-Cosmos-3rd-Store/main/servapps/crafty-controller/cosmos-compose.json"
   }
 ]
